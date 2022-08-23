@@ -10,10 +10,17 @@ public class UIManagerMain : MonoBehaviour
 
     void Awake()
     {
+        // load high score and scorer
         PersistenceManager.instance.LoadHighScore();
-        if (PersistenceManager.instance.highScore)
+
+        // if loaded high score greater than 0, display the high score and scorer
+        if (PersistenceManager.instance.highScore != 0)
         {
             highScoreText.text = "Best Score: " + PersistenceManager.instance.highScore + " (" + PersistenceManager.instance.highScoreName + ")";
+        } 
+        else
+        {
+            highScoreText.text = "No Best Score";
         }
     }
     

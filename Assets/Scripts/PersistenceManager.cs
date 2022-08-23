@@ -11,6 +11,7 @@ public class PersistenceManager : MonoBehaviour
     public int highScore;
     public string highScoreName;
 
+
     private void Awake()
     {
         if (instance != null)
@@ -23,6 +24,7 @@ public class PersistenceManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    // save data for use in the next sessions
     [System.Serializable]
     class SaveData
     {

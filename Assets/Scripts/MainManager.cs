@@ -74,9 +74,16 @@ public class MainManager : MonoBehaviour
 
     public void GameOver()
     {
+        // debug message
         Debug.Log("Score: " + m_Points + ", Name: " + PersistenceManager.instance.name);
-        PersistenceManager.instance.SaveHighScore(m_Points, PersistenceManager.instance.name); 
-        
+
+        // save the score and name if the score is higher than the best score
+        if (m_Points > PersistenceManager.instance.highScore)
+        {
+            Debug.Log("New Best!");
+            PersistenceManager.instance.SaveHighScore(m_Points, PersistenceManager.instance.name);
+        }
+
         m_GameOver = true;
         GameOverText.SetActive(true);
     }
